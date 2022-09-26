@@ -2,9 +2,7 @@
     <body>
       <form method="POST">{%csrf_token%}
          
-        {% for fm in error %}
-         {{fm.FirstName}}:{{fm}}<br>
-      {%endfor%}
+    
          <button type="submit">Submit</button>
       </form>
     </body>

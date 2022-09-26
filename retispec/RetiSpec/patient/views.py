@@ -5,9 +5,7 @@ from .models import Patient
 from rest_framework import generics
 import json
 from django_filters.rest_framework import DjangoFilterBackend
-
-
-from rest_framework.views import APIView
+from django.db.models import Q
 
 # Create your views here.
 
@@ -40,9 +38,9 @@ class GetPatientByID(generics.ListAPIView):
 
 #Get a patient by first + last name
 class GetPatientByName(generics.ListAPIView):
-    def get(self, request, searchstring, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         try:
-            return Response(Patient.objects.filter(FirstName__contains=searchstring,LastName__contains=searchstring).values())            
+            return Response(Patient.objects.filter(Q(FirstName = request.GET['FirstName']) | Q(LastName = request.GET['LastName'])).values())            
         except Exception as esc:
             print(esc)
             return Response({'Exception':esc})            
