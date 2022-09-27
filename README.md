@@ -56,7 +56,7 @@ http://127.0.0.1:8000/patient/DeletePatient/<id>
 ### Acquisitions
 
 1. Add a new acquisition for a patient.
-http://127.0.0.1:8000/acquisition/AddAcquisition
+http://127.0.0.1:8000/acquisition/AddAcquisition/
 
 2. List all patient acquisitions (by patient id)
 http://127.0.0.1:8000/acquisition/ListAcquistionsOfPatient/<id>
